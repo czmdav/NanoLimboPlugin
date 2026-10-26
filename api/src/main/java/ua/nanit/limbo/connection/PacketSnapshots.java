@@ -93,6 +93,7 @@ public final class PacketSnapshots {
     public static List<PacketSnapshot> PACKETS_REGISTRY_DATA_1_21_7;
     public static List<PacketSnapshot> PACKETS_REGISTRY_DATA_1_21_9;
     public static List<PacketSnapshot> PACKETS_REGISTRY_DATA_1_21_11;
+    public static List<PacketSnapshot> PACKETS_REGISTRY_DATA_1_26_1;
 
     private PacketSnapshot packetFinishConfiguration;
 
@@ -244,7 +245,9 @@ public final class PacketSnapshots {
 
         this.packetUpdateTags = PacketSnapshot.of(PacketUpdateTags.class, (version) -> {
             PacketUpdateTags packetUpdateTags = new PacketUpdateTags();
-            if (version.moreOrEqual(Version.V1_21_11)) {
+            if (version.moreOrEqual(Version.V1_26_1)) {
+                packetUpdateTags.setTags(parseUpdateTags(server.getDimensionRegistry().getTags_1_26_1()));
+            } else if (version.moreOrEqual(Version.V1_21_11)) {
                 packetUpdateTags.setTags(parseUpdateTags(server.getDimensionRegistry().getTags_1_21_11()));
             } else if (version.moreOrEqual(Version.V1_21_9)) {
                 packetUpdateTags.setTags(parseUpdateTags(server.getDimensionRegistry().getTags_1_21_9()));
@@ -281,6 +284,7 @@ public final class PacketSnapshots {
         PACKETS_REGISTRY_DATA_1_21_7 = createRegistryData(server, server.getDimensionRegistry().getCodec_1_21_7());
         PACKETS_REGISTRY_DATA_1_21_9 = createRegistryData(server, server.getDimensionRegistry().getCodec_1_21_9());
         PACKETS_REGISTRY_DATA_1_21_11 = createRegistryData(server, server.getDimensionRegistry().getCodec_1_21_11());
+        PACKETS_REGISTRY_DATA_1_26_1 = createRegistryData(server, server.getDimensionRegistry().getCodec_1_26_1());
 
         packetFinishConfiguration = PacketSnapshot.of(new PacketFinishConfiguration());
 
