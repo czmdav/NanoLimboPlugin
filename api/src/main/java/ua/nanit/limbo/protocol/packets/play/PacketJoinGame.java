@@ -326,8 +326,13 @@ public class PacketJoinGame implements PacketOut {
             }
             msg.writeString(worldName);
             msg.writeLong(hashedSeed);
-            msg.writeByte(gameMode);
-            msg.writeByte(previousGameMode);
+            if (version.moreOrEqual(Version.V1_26_3)) {
+                msg.writeVarInt(gameMode);
+                msg.writeVarInt(previousGameMode + 1); // Optional<GameType>: 0 means absent (-1 here)
+            } else {
+                msg.writeByte(gameMode);
+                msg.writeByte(previousGameMode);
+            }
             msg.writeBoolean(isDebug);
             msg.writeBoolean(isFlat);
             msg.writeBoolean(false);
