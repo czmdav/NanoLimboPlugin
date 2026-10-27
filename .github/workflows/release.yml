@@ -14,11 +14,11 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Set up JDK 21
+      - name: Set up JDK 25
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: 21
+          java-version: 25
           cache: gradle
 
       - name: Build and test
@@ -56,5 +56,5 @@ jobs:
           else
             gh release create "$TAG" "$JAR" --target "$GITHUB_SHA" \
               --title "NanoLimbo Velocity $VERSION" \
-              --notes "Built from $GITHUB_SHA on Java 21."
+              --notes "Built from $GITHUB_SHA on Java 25."
           fi
