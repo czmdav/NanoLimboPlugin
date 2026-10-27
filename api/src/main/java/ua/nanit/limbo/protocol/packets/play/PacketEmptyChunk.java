@@ -50,9 +50,21 @@ public class PacketEmptyChunk implements PacketOut {
 
         msg.writeVarInt(0);
 
-        byte[] lightData = new byte[]{1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3, -1, -1, 0, 0};
-        msg.ensureWritable(lightData.length);
-        msg.writeBytes(lightData, 1, lightData.length - 1);
+        if (version.moreOrEqual(Version.V26_3)) {
+            // 26.3 BitSets are VarInt byte length + BitSet.toByteArray() (little-endian), not VarInt long count.
+            // emptyBlockYMask has bits 0-17 set: 0x3FFFF -> bytes FF FF 03.
+            msg.writeVarInt(0); // skyYMask
+            msg.writeVarInt(0); // blockYMask
+            msg.writeVarInt(0); // emptySkyYMask
+            msg.writeVarInt(3); // emptyBlockYMask
+            msg.writeBytes(new byte[]{-1, -1, 3});
+            msg.writeVarInt(0); // sky light arrays
+            msg.writeVarInt(0); // block light arrays
+        } else {
+            byte[] lightData = new byte[]{1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3, -1, -1, 0, 0};
+            msg.ensureWritable(lightData.length);
+            msg.writeBytes(lightData, 1, lightData.length - 1);
+        }
     }
 
     @Override
