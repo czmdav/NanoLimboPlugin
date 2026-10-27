@@ -106,13 +106,13 @@ public enum State {
             );
             clientBound.register(
                     PacketKnownPacks::new,
-                    map(0x0E, V1_20_5, V1_26_2),
-                    map(0x0F, V1_26_3, Version.getMax())
+                    map(0x0E, V1_20_5, V26_2),
+                    map(0x0F, V26_3, Version.getMax())
             );
             clientBound.register(
                     PacketUpdateTags::new,
-                    map(0x0D, V1_20_5, V1_26_2),
-                    map(0x0E, V1_26_3, Version.getMax())
+                    map(0x0D, V1_20_5, V26_2),
+                    map(0x0E, V26_3, Version.getMax())
             );
             clientBound.register(
                     PacketRegistryData::new,
@@ -161,7 +161,7 @@ public enum State {
                     map(0x18, V1_20_5, V1_21),
                     map(0x1A, V1_21_2, V1_21_5),
                     map(0x1B, V1_21_6, V1_21_11),
-                    map(0x1C, V1_26_1, Version.getMax())
+                    map(0x1C, V26_1, Version.getMax())
             );
 
             clientBound.register(PacketDeclareCommands::new,
@@ -193,8 +193,8 @@ public enum State {
                     map(0x2C, V1_21_2, V1_21_4),
                     map(0x2B, V1_21_5, V1_21_7),
                     map(0x30, V1_21_9, V1_21_11),
-                    map(0x31, V1_26_1, V1_26_2),
-                    map(0x32, V1_26_3, Version.getMax())
+                    map(0x31, V26_1, V26_2),
+                    map(0x32, V26_3, Version.getMax())
             );
             clientBound.register(PacketPluginMessage::new,
                     map(0x19, V1_13, V1_13_2),
@@ -230,8 +230,8 @@ public enum State {
                     map(0x3A, V1_21_2, V1_21_4),
                     map(0x39, V1_21_5, V1_21_7),
                     map(0x3E, V1_21_9, V1_21_11),
-                    map(0x40, V1_26_1, V1_26_2),
-                    map(0x41, V1_26_3, Version.getMax())
+                    map(0x40, V26_1, V26_2),
+                    map(0x41, V26_3, Version.getMax())
             );
             clientBound.register(PacketPlayerPositionAndLook::new,
                     map(0x08, V1_7_2, V1_8),
@@ -252,8 +252,8 @@ public enum State {
                     map(0x42, V1_21_2, V1_21_4),
                     map(0x41, V1_21_5, V1_21_7),
                     map(0x46, V1_21_9, V1_21_11),
-                    map(0x48, V1_26_1, V1_26_2),
-                    map(0x49, V1_26_3, Version.getMax())
+                    map(0x48, V26_1, V26_2),
+                    map(0x49, V26_3, Version.getMax())
             );
             clientBound.register(PacketKeepAlive::new,
                     map(0x00, V1_7_2, V1_8),
@@ -273,8 +273,8 @@ public enum State {
                     map(0x27, V1_21_2, V1_21_4),
                     map(0x26, V1_21_5, V1_21_7),
                     map(0x2B, V1_21_9, V1_21_11),
-                    map(0x2C, V1_26_1, V1_26_2),
-                    map(0x2D, V1_26_3, Version.getMax())
+                    map(0x2C, V26_1, V26_2),
+                    map(0x2D, V26_3, Version.getMax())
             );
             clientBound.register(PacketChatMessage::new,
                     map(0x02, V1_7_2, V1_8),
@@ -293,8 +293,8 @@ public enum State {
                     map(0x73, V1_21_2, V1_21_4),
                     map(0x72, V1_21_5, V1_21_7),
                     map(0x77, V1_21_9, V1_21_11),
-                    map(0x79, V1_26_1, V1_26_2),
-                    map(0x7C, V1_26_3, Version.getMax())
+                    map(0x79, V26_1, V26_2),
+                    map(0x7C, V26_3, Version.getMax())
             );
             clientBound.register(PacketBossBar::new,
                     map(0x0C, V1_9, V1_14_4),
@@ -325,8 +325,8 @@ public enum State {
                     map(0x40, V1_21_2, V1_21_4),
                     map(0x3F, V1_21_5, V1_21_7),
                     map(0x44, V1_21_9, V1_21_11),
-                    map(0x46, V1_26_1, V1_26_2),
-                    map(0x47, V1_26_3, Version.getMax())
+                    map(0x46, V26_1, V26_2),
+                    map(0x47, V26_3, Version.getMax())
             );
             clientBound.register(PacketTitleLegacy::new,
                     map(0x45, V1_8, V1_11_1),
@@ -349,8 +349,8 @@ public enum State {
                     map(0x6C, V1_21_2, V1_21_4),
                     map(0x6B, V1_21_5, V1_21_7),
                     map(0x70, V1_21_9, V1_21_11),
-                    map(0x72, V1_26_1, V1_26_2),
-                    map(0x74, V1_26_3, Version.getMax())
+                    map(0x72, V26_1, V26_2),
+                    map(0x74, V26_3, Version.getMax())
             );
             clientBound.register(PacketTitleSetSubTitle::new,
                     map(0x57, V1_17, V1_17_1),
@@ -364,8 +364,8 @@ public enum State {
                     map(0x6A, V1_21_2, V1_21_4),
                     map(0x69, V1_21_5, V1_21_7),
                     map(0x6E, V1_21_9, V1_21_11),
-                    map(0x70, V1_26_1, V1_26_2),
-                    map(0x72, V1_26_3, Version.getMax())
+                    map(0x70, V26_1, V26_2),
+                    map(0x72, V26_3, Version.getMax())
             );
             clientBound.register(PacketTitleTimes::new,
                     map(0x5A, V1_17, V1_17_1),
@@ -379,8 +379,8 @@ public enum State {
                     map(0x6D, V1_21_2, V1_21_4),
                     map(0x6C, V1_21_5, V1_21_7),
                     map(0x71, V1_21_9, V1_21_11),
-                    map(0x73, V1_26_1, V1_26_2),
-                    map(0x75, V1_26_3, Version.getMax())
+                    map(0x73, V26_1, V26_2),
+                    map(0x75, V26_3, Version.getMax())
             );
             clientBound.register(PacketPlayerListHeader::new,
                     map(0x47, V1_8, V1_8),
@@ -404,8 +404,8 @@ public enum State {
                     map(0x74, V1_21_2, V1_21_4),
                     map(0x73, V1_21_5, V1_21_7),
                     map(0x78, V1_21_9, V1_21_11),
-                    map(0x7A, V1_26_1, V1_26_2),
-                    map(0x7D, V1_26_3, Version.getMax())
+                    map(0x7A, V26_1, V26_2),
+                    map(0x7D, V26_3, Version.getMax())
             );
             clientBound.register(PacketSpawnPosition::new,
                     map(0x4C, V1_19_3, V1_19_3),
@@ -416,16 +416,16 @@ public enum State {
                     map(0x5B, V1_21_2, V1_21_4),
                     map(0x5A, V1_21_5, V1_21_7),
                     map(0x5F, V1_21_9, V1_21_11),
-                    map(0x61, V1_26_1, V1_26_2),
-                    map(0x63, V1_26_3, Version.getMax())
+                    map(0x61, V26_1, V26_2),
+                    map(0x63, V26_3, Version.getMax())
             );
             clientBound.register(PacketGameEvent::new,
                     map(0x20, V1_20_3, V1_20_3),
                     map(0x22, V1_20_5, V1_21),
                     map(0x23, V1_21_2, V1_21_4),
                     map(0x22, V1_21_5, V1_21_7),
-                    map(0x26, V1_21_9, V1_26_2),
-                    map(0x27, V1_26_3, Version.getMax())
+                    map(0x26, V1_21_9, V26_2),
+                    map(0x27, V26_3, Version.getMax())
             );
             clientBound.register(PacketEmptyChunk::new,
                     map(0x25, V1_20_3, V1_20_3),
@@ -433,8 +433,8 @@ public enum State {
                     map(0x28, V1_21_2, V1_21_4),
                     map(0x27, V1_21_5, V1_21_7),
                     map(0x2C, V1_21_9, V1_21_11),
-                    map(0x2D, V1_26_1, V1_26_2),
-                    map(0x2E, V1_26_3, Version.getMax())
+                    map(0x2D, V26_1, V26_2),
+                    map(0x2E, V26_3, Version.getMax())
             );
         }
     };

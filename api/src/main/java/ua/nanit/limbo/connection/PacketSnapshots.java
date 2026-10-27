@@ -93,9 +93,9 @@ public final class PacketSnapshots {
     public static List<PacketSnapshot> PACKETS_REGISTRY_DATA_1_21_7;
     public static List<PacketSnapshot> PACKETS_REGISTRY_DATA_1_21_9;
     public static List<PacketSnapshot> PACKETS_REGISTRY_DATA_1_21_11;
-    public static List<PacketSnapshot> PACKETS_REGISTRY_DATA_1_26_1;
-    public static List<PacketSnapshot> PACKETS_REGISTRY_DATA_1_26_2;
-    public static List<PacketSnapshot> PACKETS_REGISTRY_DATA_1_26_3;
+    public static List<PacketSnapshot> PACKETS_REGISTRY_DATA_26_1;
+    public static List<PacketSnapshot> PACKETS_REGISTRY_DATA_26_2;
+    public static List<PacketSnapshot> PACKETS_REGISTRY_DATA_26_3;
 
     private PacketSnapshot packetFinishConfiguration;
 
@@ -112,7 +112,7 @@ public final class PacketSnapshots {
 
         PacketJoinGame joinGame = new PacketJoinGame();
         String worldName = "minecraft:" + server.getConfig().getDimensionType().toLowerCase(Locale.ROOT);
-        joinGame.setEntityId(0);
+        joinGame.setEntityId(1);
         joinGame.setEnableRespawnScreen(true);
         joinGame.setFlat(false);
         joinGame.setGameMode(server.getConfig().getGameMode());
@@ -247,11 +247,12 @@ public final class PacketSnapshots {
 
         this.packetUpdateTags = PacketSnapshot.of(PacketUpdateTags.class, (version) -> {
             PacketUpdateTags packetUpdateTags = new PacketUpdateTags();
-            if (version.moreOrEqual(Version.V1_26_3)) {
-                packetUpdateTags.setTags(parseUpdateTags(server.getDimensionRegistry().getTags_1_26_3()));
-            } else if (version.moreOrEqual(Version.V1_26_2)) {
-            } else if (version.moreOrEqual(Version.V1_26_1)) {
-                packetUpdateTags.setTags(parseUpdateTags(server.getDimensionRegistry().getTags_1_26_1()));
+            if (version.moreOrEqual(Version.V26_3)) {
+                packetUpdateTags.setTags(parseUpdateTags(server.getDimensionRegistry().getTags_26_3()));
+            } else if (version.moreOrEqual(Version.V26_2)) {
+                packetUpdateTags.setTags(parseUpdateTags(server.getDimensionRegistry().getTags_26_2()));
+            } else if (version.moreOrEqual(Version.V26_1)) {
+                packetUpdateTags.setTags(parseUpdateTags(server.getDimensionRegistry().getTags_26_1()));
             } else if (version.moreOrEqual(Version.V1_21_11)) {
                 packetUpdateTags.setTags(parseUpdateTags(server.getDimensionRegistry().getTags_1_21_11()));
             } else if (version.moreOrEqual(Version.V1_21_9)) {
@@ -289,9 +290,9 @@ public final class PacketSnapshots {
         PACKETS_REGISTRY_DATA_1_21_7 = createRegistryData(server, server.getDimensionRegistry().getCodec_1_21_7());
         PACKETS_REGISTRY_DATA_1_21_9 = createRegistryData(server, server.getDimensionRegistry().getCodec_1_21_9());
         PACKETS_REGISTRY_DATA_1_21_11 = createRegistryData(server, server.getDimensionRegistry().getCodec_1_21_11());
-        PACKETS_REGISTRY_DATA_1_26_1 = createRegistryData(server, server.getDimensionRegistry().getCodec_1_26_1());
-        PACKETS_REGISTRY_DATA_1_26_2 = createRegistryData(server, server.getDimensionRegistry().getCodec_1_26_2());
-        PACKETS_REGISTRY_DATA_1_26_3 = createRegistryData(server, server.getDimensionRegistry().getCodec_1_26_3());
+        PACKETS_REGISTRY_DATA_26_1 = createRegistryData(server, server.getDimensionRegistry().getCodec_26_1());
+        PACKETS_REGISTRY_DATA_26_2 = createRegistryData(server, server.getDimensionRegistry().getCodec_26_2());
+        PACKETS_REGISTRY_DATA_26_3 = createRegistryData(server, server.getDimensionRegistry().getCodec_26_3());
 
         packetFinishConfiguration = PacketSnapshot.of(new PacketFinishConfiguration());
 

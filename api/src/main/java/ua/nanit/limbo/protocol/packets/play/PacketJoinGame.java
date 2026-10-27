@@ -326,7 +326,7 @@ public class PacketJoinGame implements PacketOut {
             }
             msg.writeString(worldName);
             msg.writeLong(hashedSeed);
-            if (version.moreOrEqual(Version.V1_26_3)) {
+            if (version.moreOrEqual(Version.V26_3)) {
                 msg.writeVarInt(gameMode);
                 msg.writeVarInt(previousGameMode + 1); // Optional<GameType>: 0 means absent (-1 here)
             } else {
@@ -338,7 +338,7 @@ public class PacketJoinGame implements PacketOut {
             msg.writeBoolean(false);
             msg.writeVarInt(0);
             msg.writeVarInt(0);
-            if (version.moreOrEqual(Version.V1_26_2)) {
+            if (version.moreOrEqual(Version.V26_2)) {
                 msg.writeBoolean(true); // Online mode: the proxy has already authenticated the player
             }
             msg.writeBoolean(secureProfile);
