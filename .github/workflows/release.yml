@@ -22,13 +22,20 @@ jobs:
           cache: gradle
 
       - name: Build and test
-        run: ./gradlew --no-daemon test :velocity:shadowJar
+        run: ./gradlew --no-daemon test :velocity:shadowJar :api:shadowJar
 
       - name: Upload Velocity plugin
         uses: actions/upload-artifact@v4
         with:
-          name: NanoLimboPluginPlus-Velocity
-          path: velocity/build/libs/NanoLimboPluginPlus-Velocity-*.jar
+          name: NanoLimboPlus-Velocity
+          path: velocity/build/libs/NanoLimboPlus-Velocity-*.jar
+          if-no-files-found: error
+
+      - name: Upload standalone server
+        uses: actions/upload-artifact@v4
+        with:
+          name: NanoLimboPlus-standalone
+          path: api/build/libs/NanoLimboPlus-standalone-*.jar
           if-no-files-found: error
 
   release:
@@ -37,10 +44,11 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Download Velocity plugin
+      - name: Download plugin artifacts
         uses: actions/download-artifact@v4
         with:
-          name: NanoLimboPluginPlus-Velocity
+          pattern: NanoLimboPlus-*
+          merge-multiple: true
           path: dist
 
       - name: Publish GitHub release
@@ -48,13 +56,14 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
         run: |
-          JAR=$(ls dist/*.jar)
-          VERSION=$(basename "$JAR" | sed -E 's/^NanoLimboPluginPlus-Velocity-(.*)\.jar$/\1/')
+          VELOCITY_JAR=$(ls dist/NanoLimboPlus-Velocity-*.jar)
+          STANDALONE_JAR=$(ls dist/NanoLimboPlus-standalone-*.jar)
+          VERSION=$(basename "$VELOCITY_JAR" | sed -E 's/^NanoLimboPlus-Velocity-(.*)\.jar$/\1/')
           TAG="v$VERSION"
           if gh release view "$TAG" >/dev/null 2>&1; then
-            gh release upload "$TAG" "$JAR" --clobber
+            gh release upload "$TAG" "$VELOCITY_JAR" "$STANDALONE_JAR" --clobber
           else
-            gh release create "$TAG" "$JAR" --target "$GITHUB_SHA" \
-              --title "NanoLimbo $VERSION" \
+            gh release create "$TAG" "$VELOCITY_JAR" "$STANDALONE_JAR" --target "$GITHUB_SHA" \
+              --title "NanoLimboPlus $VERSION" \
               --notes "Built from $GITHUB_SHA on Java 25."
           fi
