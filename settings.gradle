@@ -1,4 +1,4 @@
-rootProject.name = 'NanoLimbo'
+rootProject.name = 'NanoLimboPlus'
 
 include 'api'
 // Bungee module is kept in the repo but untested; re-enable when needed.
