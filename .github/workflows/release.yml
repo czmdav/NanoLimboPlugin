@@ -55,6 +55,6 @@ jobs:
             gh release upload "$TAG" "$JAR" --clobber
           else
             gh release create "$TAG" "$JAR" --target "$GITHUB_SHA" \
-              --title "NanoLimbo Velocity $VERSION" \
+              --title "NanoLimbo $VERSION" \
               --notes "Built from $GITHUB_SHA on Java 25."
           fi
