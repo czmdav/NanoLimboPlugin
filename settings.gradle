@@ -1,5 +1,6 @@
 rootProject.name = 'NanoLimbo'
 
 include 'api'
-include 'bungee'
+// Bungee module is kept in the repo but untested; re-enable when needed.
+// include 'bungee'
 include 'velocity'
