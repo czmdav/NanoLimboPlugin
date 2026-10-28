@@ -14,9 +14,9 @@ If you want to create Limbo using api you can follow this steps:
 </repositories>
 <dependencies>
     <dependency>
-       <groupId>com.github.bivashy.NanoLimboPlugin</groupId>
+       <groupId>com.github.czmdav.NanoLimboPlugin</groupId>
        <artifactId>api</artifactId>
-       <version>1.0.11</version>
+       <version>v1.2.0</version>
     </dependency>
 </dependencies>
 ```
@@ -28,7 +28,7 @@ allprojects {
    }
 }
 dependencies {
-    implementation 'com.github.bivashy.NanoLimboPlugin:api:1.0.11'
+    implementation 'com.github.czmdav.NanoLimboPlugin:api:v1.2.0'
 }
 ```
 ### How to use API?
@@ -152,6 +152,7 @@ Symbol `X` means all minor versions.
 - [x] 1.19.X
 - [x] 1.20.X
 - [x] 1.21.X
+- [x] 26.X
 
 The server **doesn't** support snapshot versions.
 
@@ -166,7 +167,10 @@ Note that the server also will be closed correctly if you just press `Ctrl+C`.
 
 ### Installation
 
-Required software: JRE 11+
+Required software:
+
+* Java 25 (JRE 25+). The jars are compiled for Java 25 and will not start on older runtimes.
+* Velocity 4.0.0 if you use the Velocity plugin.
 
 The installation process is simple.
 
@@ -200,8 +204,8 @@ to add some functionality that is suitable for a limbo server and won't signific
 
 Required software:
 
-* JDK 11+
-* Gradle 7+ (optional)
+* JDK 25
+* Gradle is not required to be installed separately. The included wrapper (`./gradlew`) uses Gradle 9.8.2.
 
 To build a minimized jar, go to the project root directory and run in the terminal:
 
