@@ -16,7 +16,7 @@ dependencies {
 }
 
 shadowJar {
-    archiveBaseName.set("NanoLimboPluginPlus-Bungee")
+    archiveBaseName.set("NanoLimboPlus-Bungee")
     archiveClassifier.set("")
     manifest {
         attributes 'Main-Class': 'ua.nanit.limbo.NanoLimbo'

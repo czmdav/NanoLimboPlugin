@@ -7,6 +7,8 @@ dependencies {
 
 
 shadowJar{
+    archiveBaseName = 'NanoLimboPlus-standalone'
+    archiveClassifier = ''
     manifest {
         attributes 'Main-Class': 'ua.nanit.limbo.NanoLimbo'
     }

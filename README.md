@@ -1,4 +1,4 @@
-## NanoLimboPluginPlus
+## NanoLimboPlus
 This is a fork of [NanoLimboPlugin](https://github.com/bivashy/NanoLimboPlugin) by [bivashy](https://github.com/bivashy), created to update to the latest version of Minecraft.
 
 ## NanoLimboPlugin
