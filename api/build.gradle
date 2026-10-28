@@ -5,6 +5,17 @@ dependencies {
     implementation 'com.grack:nanojson:1.7'
 }
 
+apply plugin: 'maven-publish'
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifactId = 'api'
+            artifact(tasks.named('shadowJar'))
+        }
+    }
+}
+
 
 shadowJar{
     archiveBaseName = 'NanoLimboPlus-standalone'
