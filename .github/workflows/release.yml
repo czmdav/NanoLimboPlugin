@@ -28,7 +28,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: NanoLimboPlus-Velocity
-          path: velocity/build/libs/NanoLimboPlus-Velocity-*.jar
+          path: velocity/build/libs/NanoLimboPlus-velocity-*.jar
           if-no-files-found: error
 
       - name: Upload standalone server
@@ -56,9 +56,9 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
         run: |
-          VELOCITY_JAR=$(ls dist/NanoLimboPlus-Velocity-*.jar)
+          VELOCITY_JAR=$(ls dist/NanoLimboPlus-velocity-*.jar)
           STANDALONE_JAR=$(ls dist/NanoLimboPlus-standalone-*.jar)
-          VERSION=$(basename "$VELOCITY_JAR" | sed -E 's/^NanoLimboPlus-Velocity-(.*)\.jar$/\1/')
+          VERSION=$(basename "$VELOCITY_JAR" | sed -E 's/^NanoLimboPlus-velocity-(.*)\.jar$/\1/')
           TAG="v$VERSION"
           if gh release view "$TAG" >/dev/null 2>&1; then
             gh release upload "$TAG" "$VELOCITY_JAR" "$STANDALONE_JAR" --clobber
